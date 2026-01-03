@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://18ljgeeryvgu"]
+
+[ext_resource type="Script" uid="uid://cgphjng2c5ibx" path="res://Scripts/pots.gd" id="1_y0m8j"]
+[ext_resource type="Texture2D" uid="uid://l3y6njiirphl" path="res://icon.svg" id="1_y83ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0m8j"]
+size = Vector2(128, 126)
+
+[node name="Pots" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_y0m8j")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 0.31764707)
+position = Vector2(0, -3)
+rotation = -3.1415925
+texture = ExtResource("1_y83ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_y0m8j")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = 11.0
+text = "6/7"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=4 uid="uid://cqqludyhdcrrt"]
+
+[ext_resource type="Script" uid="uid://bj5s2dgk8i31q" path="res://Scripts/game.gd" id="1_6a86y"]
+[ext_resource type="PackedScene" uid="uid://do4oi6it5h6eh" path="res://Scenes/Entities/player.tscn" id="1_urmfk"]
+[ext_resource type="Texture2D" uid="uid://cbywx5pga5ofx" path="res://assets/level/dev.png" id="2_lapg0"]
+[ext_resource type="PackedScene" uid="uid://18ljgeeryvgu" path="res://Scenes/Entities/pots.tscn" id="3_jrtrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lapg0"]
+size = Vector2(143, 109)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jrtrj"]
+texture = ExtResource("2_lapg0")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7h4ox"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "Breakable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_jrtrj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrtrj"]
+size = Vector2(20, 6)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6a86y")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Goal" type="Area2D" parent="Level"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Goal"]
+position = Vector2(556, 209)
+shape = SubResource("RectangleShape2D_lapg0")
+
+[node name="Bloodied" type="TileMapLayer" parent="Level"]
+tile_map_data = PackedByteArray("AAD8/xAAAAAEAAAAAAD9/xAAAAAEAAAAAAD+/xAAAAAEAAAAAAD//xAAAAAEAAAAAAAAABAAAAAEAAAAAAABABAAAAAEAAAAAAACABAAAAAEAAAAAAADABAAAAAEAAAAAAAEABAAAAAEAAAAAAAFABAAAAAEAAAAAAAGABAAAAAEAAAAAAAHABAAAAAEAAAAAAAIABAAAAAEAAAAAAAJABAAAAAEAAAAAAAKABAAAAAEAAAAAAALABAAAAAEAAAAAAAMABAAAAAEAAAAAAANABAAAAAEAAAAAAAOABAAAAAEAAAAAAAPABAAAAAEAAAAAAAQABAAAAAEAAAAAAARABAAAAAEAAAAAAASABAAAAAEAAAAAAATABAAAAAEAAAAAAAUABAAAAAEAAAAAAAVABAAAAAEAAAAAAAWABAAAAAEAAAAAAAXABAAAAAEAAAAAAAYABAAAAAEAAAAAAAZABAAAAAEAAAAAAAaABAAAAAEAAAAAAAbABAAAAAEAAAAAAAcABEAAAAEAAAAAAAdABEAAAAEAAAAAAAeABEAAAAEAAAAAAAfABEAAAAEAAAAAAAgABEAAAAEAAAAAAAhABEAAAAEAAAAAAAiABEAAAAEAAAAAAAjABEAAAAEAAAAAAAkABEAAAAEAAAAAAAlABEAAAAEAAAAAAAmABEAAAAEAAAAAAAnABEAAAAEAAAAAAAoABEAAAAEAAAAAAA=")
+tile_set = SubResource("TileSet_7h4ox")
+
+[node name="Default" type="TileMapLayer" parent="Level"]
+tile_map_data = PackedByteArray("AAD8/xAAAAAAAAAAAAD9/xAAAAAAAAAAAAD+/xAAAAAAAAAAAAD//xAAAAAAAAAAAAAAABAAAAAAAAAAAAABABAAAAAAAAAAAAACABAAAAAAAAAAAAADABAAAAAAAAAAAAAEABAAAAAAAAAAAAAFABAAAAAAAAAAAAAGABAAAAAAAAAAAAAHABAAAAAAAAAAAAAIABAAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAAAAAAAAALABAAAAAAAAAAAAAMABAAAAAAAAAAAAANABAAAAAAAAAAAAAOABAAAAAAAAAAAAAPABAAAAAAAAAAAAAQABAAAAAAAAAAAAARABAAAAAAAAAAAAASABAAAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAAVABAAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAYABAAAAAAAAAAAAAZABAAAAAAAAAAAAAaABAAAAAAAAAAAAAbABAAAAAAAAAAAAAcABEAAAAAAAAAAAAdABEAAAAAAAAAAAAeABEAAAAAAAAAAAAfABEAAAAAAAAAAAAgABEAAAAAAAAAAAAhABEAAAAAAAAAAAAiABEAAAAAAAAAAAAjABEAAAAAAAAAAAAkABEAAAAAAAAAAAAlABEAAAAAAAAAAAAmABEAAAAAAAAAAAAnABEAAAAAAAAAAAAoABEAAAAAAAAAAAASAAcAAAAAAAEAAAASAAgAAAAAAAEAAAASAAkAAAAAAAEAAAASAAoAAAAAAAEAAAASAAsAAAAAAAEAAAASAAwAAAAAAAEAAAASAA0AAAAAAAEAAAASAA4AAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_7h4ox")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("1_urmfk")]
+
+[node name="Feet" type="Area2D" parent="Entities/Player"]
+position = Vector2(-1, 24)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Player/Feet"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_jrtrj")
+
+[node name="Pots" parent="Entities" instance=ExtResource("3_jrtrj")]
+position = Vector2(213, 191)
+
+[connection signal="body_entered" from="Level/Goal" to="." method="_on_area_2d_body_entered"]
