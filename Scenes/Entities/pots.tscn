@@ -1,24 +1,90 @@
-[gd_scene load_steps=4 format=3 uid="uid://18ljgeeryvgu"]
+[gd_scene load_steps=16 format=3 uid="uid://18ljgeeryvgu"]
 
 [ext_resource type="Script" uid="uid://cgphjng2c5ibx" path="res://Scripts/pots.gd" id="1_y0m8j"]
-[ext_resource type="Texture2D" uid="uid://l3y6njiirphl" path="res://icon.svg" id="1_y83ge"]
+[ext_resource type="Texture2D" uid="uid://djm8h7dfminlg" path="res://assets/pots/pot2.png" id="2_2nd17"]
+[ext_resource type="Texture2D" uid="uid://bua04xedj88ke" path="res://assets/pots/pot3.png" id="3_1umnc"]
+[ext_resource type="Texture2D" uid="uid://xnuuktoogh1a" path="res://assets/pots/pot4.png" id="4_c07f4"]
+[ext_resource type="Texture2D" uid="uid://bl78h7emuu5f1" path="res://assets/pots/pot5.png" id="5_7vkaq"]
+[ext_resource type="Texture2D" uid="uid://cib2j0xekc3we" path="res://assets/pots/pot6.png" id="6_iefto"]
+[ext_resource type="Texture2D" uid="uid://58iscl2dotot" path="res://assets/pots/pot7.png" id="7_xm28r"]
+[ext_resource type="Texture2D" uid="uid://desemnyiwwhd6" path="res://assets/pots/pot8.png" id="8_b5oey"]
+[ext_resource type="Texture2D" uid="uid://cy217tk2v668y" path="res://assets/pots/pot9.png" id="9_bcnil"]
+[ext_resource type="Texture2D" uid="uid://cot8qii0rn8b1" path="res://assets/pots/pot10.png" id="10_a5d0b"]
+[ext_resource type="Texture2D" uid="uid://jgdr5hngeds2" path="res://assets/pots/pot11.png" id="11_f71oj"]
+[ext_resource type="Texture2D" uid="uid://du35l7ukm5jd1" path="res://assets/pots/pot1.png" id="12_bi1ia"]
+[ext_resource type="Texture2D" uid="uid://cd0a5us4088am" path="res://assets/level/main.png" id="13_1umnc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oi8ia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2nd17")
+}],
+"loop": true,
+"name": &"blood 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1umnc")
+}],
+"loop": true,
+"name": &"blood 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("4_c07f4")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_7vkaq")
+}, {
+"duration": 1.5,
+"texture": ExtResource("6_iefto")
+}, {
+"duration": 1.5,
+"texture": ExtResource("7_xm28r")
+}, {
+"duration": 1.5,
+"texture": ExtResource("8_b5oey")
+}, {
+"duration": 1.5,
+"texture": ExtResource("9_bcnil")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_a5d0b")
+}, {
+"duration": 1.5,
+"texture": ExtResource("11_f71oj")
+}],
+"loop": true,
+"name": &"blood 3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_bi1ia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0m8j"]
-size = Vector2(128, 126)
+size = Vector2(55, 16)
 
 [node name="Pots" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_y0m8j")
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 0.31764707)
-position = Vector2(0, -3)
-rotation = -3.1415925
-texture = ExtResource("1_y83ge")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oi8ia")
+autoplay = "blood 3"
+frame_progress = 0.9724432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(1.5, -36)
 shape = SubResource("RectangleShape2D_y0m8j")
 
 [node name="Label" type="Label" parent="."]
@@ -28,5 +94,14 @@ offset_right = 21.0
 offset_bottom = 11.0
 text = "6/7"
 horizontal_alignment = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-29, 44, -9, 48, 23, 48, 51, 30, 47, -2, 48, -19, 40, -33, 32, -28, 25, -23, -29, -26, -36, -37, -41, -33, -45, -24, -47, -21, -42, -17, -43, -3, -47, 0, -49, 27)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3, -26)
+color = Color(0.54859203, 1.5281513e-06, 3.3691526e-07, 1)
+energy = 1.2
+texture = ExtResource("13_1umnc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

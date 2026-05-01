@@ -1,3 +1,130 @@
-[gd_scene format=3 uid="uid://c2rhxkoav40p5"]
+[gd_scene load_steps=22 format=3 uid="uid://c2rhxkoav40p5"]
 
-[node name="Statue" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://djowachxrg8x1" path="res://assets/level/statue/eye.png" id="1_tp376"]
+[ext_resource type="Texture2D" uid="uid://cyy7abecl2elw" path="res://assets/level/statue/statue.png" id="2_gqt40"]
+[ext_resource type="Texture2D" uid="uid://bkni72atrsvkc" path="res://assets/level/statue/dirt.png" id="3_pplui"]
+[ext_resource type="Texture2D" uid="uid://cujj2jbd5yyua" path="res://assets/level/statue/GRASS1.png" id="4_f6lv3"]
+[ext_resource type="Texture2D" uid="uid://djkb8s0c0scab" path="res://assets/level/statue/GRASS2.png" id="5_slkwy"]
+[ext_resource type="Texture2D" uid="uid://dpwtdnlsapbp" path="res://assets/level/statue/GRASS3.png" id="6_kx0f2"]
+[ext_resource type="Texture2D" uid="uid://rjj86b6f6whe" path="res://assets/level/statue/GRASS4.png" id="7_mxbji"]
+[ext_resource type="Texture2D" uid="uid://d2tmetow8052b" path="res://assets/level/statue/Sprite-0001.png" id="8_tp376"]
+[ext_resource type="Texture2D" uid="uid://etx026ckk350" path="res://assets/level/statue/Sprite-0002.png" id="9_ihnw6"]
+[ext_resource type="Texture2D" uid="uid://3s57bwkepsla" path="res://assets/level/statue/Sprite-0003.png" id="10_i5mjj"]
+[ext_resource type="Texture2D" uid="uid://txawanojg21x" path="res://assets/level/statue/Sprite-0004.png" id="11_5xour"]
+[ext_resource type="Texture2D" uid="uid://si273yl6108q" path="res://assets/level/statue/Sprite-0005.png" id="12_1wpij"]
+[ext_resource type="Texture2D" uid="uid://cldo8ktboh02q" path="res://assets/level/statue/Sprite-0006.png" id="13_byl8p"]
+[ext_resource type="Texture2D" uid="uid://bylktce4jimkg" path="res://assets/level/statue/Sprite-0007.png" id="14_lx5nu"]
+[ext_resource type="Texture2D" uid="uid://bmqjc8dg0sunu" path="res://assets/level/statue/Sprite-0008.png" id="15_wtnaq"]
+[ext_resource type="Texture2D" uid="uid://bqus8d4yirx5i" path="res://assets/level/statue/Sprite-0009.png" id="16_fdkya"]
+[ext_resource type="Texture2D" uid="uid://bc5hvnhf5qddf" path="res://assets/level/statue/Sprite-0001_n1.png" id="17_i5mjj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxbji"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("4_f6lv3")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_slkwy")
+}, {
+"duration": 1.5,
+"texture": ExtResource("6_kx0f2")
+}, {
+"duration": 1.5,
+"texture": ExtResource("7_mxbji")
+}, {
+"duration": 1.5,
+"texture": ExtResource("6_kx0f2")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_slkwy")
+}],
+"loop": true,
+"name": &"grass",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_echsk"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("8_tp376")
+}, {
+"duration": 1.5,
+"texture": ExtResource("9_ihnw6")
+}, {
+"duration": 1.5,
+"texture": ExtResource("10_i5mjj")
+}, {
+"duration": 1.5,
+"texture": ExtResource("11_5xour")
+}, {
+"duration": 1.5,
+"texture": ExtResource("12_1wpij")
+}, {
+"duration": 1.5,
+"texture": ExtResource("13_byl8p")
+}, {
+"duration": 1.5,
+"texture": ExtResource("14_lx5nu")
+}, {
+"duration": 1.5,
+"texture": ExtResource("15_wtnaq")
+}, {
+"duration": 1.5,
+"texture": ExtResource("16_fdkya")
+}, {
+"duration": 1.5,
+"texture": ExtResource("8_tp376")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihnw6"]
+size = Vector2(1316, 101)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5xour"]
+diffuse_texture = ExtResource("8_tp376")
+normal_texture = ExtResource("17_i5mjj")
+
+[node name="Statue" type="StaticBody2D"]
+
+[node name="eye" type="Sprite2D" parent="."]
+position = Vector2(-180.30469, -90.22455)
+texture = ExtResource("1_tp376")
+offset = Vector2(180.45544, 89.713104)
+
+[node name="Statue" type="Sprite2D" parent="."]
+texture = ExtResource("2_gqt40")
+
+[node name="dirt" type="Sprite2D" parent="."]
+texture = ExtResource("3_pplui")
+
+[node name="grass" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mxbji")
+animation = &"grass"
+autoplay = "grass"
+frame_progress = 0.2937467
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-215, 174, -195, 177, -168, 179, -151, 177, -139, 166, -131, 151, -120, 129, -117, 111, -124, 94, -124, 79, -121, 59, -122, 32, -137, 9, -141, 15, -148, 23, -147, 42, -152, 62, -160, 64, -188, 53, -220, 53, -229, 45, -223, 24, -220, 0, -220, -8, -227, -14, -227, -42, -217, -52, -216, -64, -221, -77, -223, -128, -243, -149, -210, -181, -180, -198, -174, -225, -186, -249, -175, -251, -137, -254, -127, -296, -112, -305, -70, -296, -32, -282, -23, -269, -39, -223, -25, -226, -15, -215, -7, -217, -2, -214, 6, -216, 12, -211, 19, -205, 44, -132, 224, -35, 314, 77, 307, 201, 251, 235, 49, 240, -124, 300, -165, 294, -175, 283, -188, 278, -193, 273, -206, 258, -219, 245, -243, 223, -256, 223, -288, 192, -287, 171, -259, 158, -247, 156)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-162, 229)
+sprite_frames = SubResource("SpriteFrames_echsk")
+autoplay = "default"
+frame = 1
+frame_progress = 0.19966117
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-162, 256.5)
+shape = SubResource("RectangleShape2D_ihnw6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-162, 229)
+texture = SubResource("CanvasTexture_5xour")

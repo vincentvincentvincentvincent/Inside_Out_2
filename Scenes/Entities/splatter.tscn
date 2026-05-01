@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cts8ti5d75x4s"]
+
+[ext_resource type="Script" uid="uid://b2hylares1xrw" path="res://Scripts/splatter.gd" id="1_hl2jw"]
+
+[sub_resource type="Curve" id="Curve_edjcx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.377432), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hl2jw"]
+colors = PackedColorArray(0.7443188, 3.6338718e-06, 8.663535e-07, 1, 1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_hl2jw"]
+_data = [Vector2(0.028000012, 1), 0.0, 0.0, 0, 0, Vector2(0.572, 0.4863814), 0.0, 0.0, 0, 0, Vector2(1, 0.31517518), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_4f8us"]
+colors = PackedColorArray(0.99607843, 0, 0, 1, 0.93719333, 0.11429792, 0.54795045, 1)
+
+[node name="Splatter" type="CPUParticles2D"]
+z_index = 2
+scale = Vector2(-5.034207, -6.6129255)
+amount = 15
+lifetime = 0.7
+speed_scale = 0.7
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0.9, 10)
+initial_velocity_min = 0.9
+initial_velocity_max = 0.9
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_edjcx")
+color = Color(0.427474, 6.738305e-07, 1.4439226e-07, 1)
+color_ramp = SubResource("Gradient_hl2jw")
+script = ExtResource("1_hl2jw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 2
+amount = 15
+lifetime = 0.64
+speed_scale = 0.7
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 32.99)
+initial_velocity_min = 0.9
+initial_velocity_max = 10.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_hl2jw")
+color = Color(0.4858997, 0.096271925, 0, 1)
+color_ramp = SubResource("Gradient_4f8us")

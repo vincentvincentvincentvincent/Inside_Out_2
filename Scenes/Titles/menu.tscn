@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dcwts7btut52p"]
+
+[ext_resource type="Script" uid="uid://ddvsagj58mpg7" path="res://Scripts/menu.gd" id="1_x5j8y"]
+
+[node name="Menu" type="Node2D" unique_id=58668748]
+script = ExtResource("1_x5j8y")
+
+[node name="Level Select" type="Label" parent="." unique_id=209597364]
+custom_minimum_size = Vector2(0, -0.47)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 432.0
+offset_top = 88.0
+offset_right = 738.0
+offset_bottom = 172.0
+grow_horizontal = 0
+tooltip_text = "for the playtest"
+mouse_filter = 1
+theme_type_variation = &"HeaderLarge"
+text = "Level Select"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Test Level" type="Label" parent="." unique_id=582041441]
+custom_minimum_size = Vector2(0, -0.47)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 425.0
+offset_top = 157.0
+offset_right = 731.0
+offset_bottom = 241.0
+grow_horizontal = 0
+tooltip_text = "for the playtest"
+mouse_filter = 1
+theme_type_variation = &"HeaderSmall"
+text = "Test Levels"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Stair" type="Button" parent="." unique_id=1833487364]
+offset_left = 79.0
+offset_top = 191.0
+offset_right = 190.0
+offset_bottom = 283.0
+text = "Stair"
+
+[node name="Pyramid" type="Button" parent="." unique_id=1144224922]
+offset_left = 203.0
+offset_top = 191.0
+offset_right = 313.0
+offset_bottom = 285.0
+text = "Pyramid"
+
+[node name="Leroy" type="Button" parent="." unique_id=1269868891]
+offset_left = 321.0
+offset_top = 193.0
+offset_right = 431.0
+offset_bottom = 285.0
+text = "Leroy"
+
+[node name="TDE" type="Button" parent="." unique_id=903840299]
+offset_left = 441.0
+offset_top = 194.0
+offset_right = 551.0
+offset_bottom = 286.0
+text = "Trickle
+Down
+Economy"
+
+[node name="Caves2" type="Button" parent="." unique_id=411111027]
+offset_left = 561.0
+offset_top = 195.0
+offset_right = 671.0
+offset_bottom = 287.0
+text = "Caves 2"
+
+[node name="Completed Level" type="Label" parent="." unique_id=1810910997]
+custom_minimum_size = Vector2(0, -0.47)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 470.0
+offset_right = 308.0
+offset_bottom = 554.0
+grow_horizontal = 0
+tooltip_text = "for the playtest"
+mouse_filter = 1
+theme_type_variation = &"HeaderSmall"
+text = "COmpleted Levels"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Inside Out" type="Button" parent="." unique_id=1935362024]
+offset_left = 83.0
+offset_top = 511.0
+offset_right = 193.0
+offset_bottom = 603.0
+text = "Inside Out"
+
+[connection signal="pressed" from="Stair" to="." method="_on_stair_pressed"]
+[connection signal="pressed" from="Pyramid" to="." method="_on_pyramid_pressed"]
+[connection signal="pressed" from="Leroy" to="." method="_on_leroy_pressed"]
+[connection signal="pressed" from="TDE" to="." method="_on_tde_pressed"]
+[connection signal="pressed" from="Caves2" to="." method="_on_caves_2_pressed"]
+[connection signal="pressed" from="Inside Out" to="." method="_on_inside_out_pressed"]

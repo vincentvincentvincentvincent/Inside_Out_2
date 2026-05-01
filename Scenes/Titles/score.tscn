@@ -1,18 +1,25 @@
-[gd_scene format=3 uid="uid://cxo8xyjaa26l1"]
+[gd_scene load_steps=3 format=3 uid="uid://cxo8xyjaa26l1"]
 
-[node name="score" type="Control"]
+[ext_resource type="Script" uid="uid://dl8hjt2xmt1hw" path="res://Scripts/score.gd" id="1_5ay1w"]
+[ext_resource type="Texture2D" uid="uid://cq8epelv4bq2v" path="res://assets/Titles/ducks3.png" id="1_ysf5j"]
+
+[node name="Score" type="Node2D"]
+script = ExtResource("1_5ay1w")
+
+[node name="ducks" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_ysf5j")
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 7.0
-offset_right = 86.0
-offset_bottom = 30.0
-text = "score"
+offset_left = 506.0
+offset_top = 200.0
+offset_right = 546.0
+offset_bottom = 223.0
+text = "67"

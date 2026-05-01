@@ -1,23 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7b7nsf540ttl"]
+[gd_scene load_steps=17 format=3 uid="uid://b7b7nsf540ttl"]
 
 [ext_resource type="Script" uid="uid://cykmt6jvhcaam" path="res://Scripts/animation.gd" id="1_bdt0k"]
+[ext_resource type="Texture2D" uid="uid://cb7jj7ontro26" path="res://assets/Titles/duckyouanddie1.png" id="2_3rkn4"]
+[ext_resource type="Texture2D" uid="uid://dcbcmstphnhgd" path="res://assets/Titles/duckyouanddie2.png" id="3_678g2"]
+[ext_resource type="Texture2D" uid="uid://faeapp01afea" path="res://assets/Titles/duckyouanddie3.png" id="4_qacxl"]
+[ext_resource type="Texture2D" uid="uid://433jfxr16vpg" path="res://assets/Titles/duckyouanddie4.png" id="5_33pqp"]
+[ext_resource type="Texture2D" uid="uid://cbfx1yf5vct2f" path="res://assets/Titles/duckyouanddie5.png" id="6_52jd5"]
+[ext_resource type="Texture2D" uid="uid://443bhih3tn5b" path="res://assets/Titles/duckyouanddie6.png" id="7_caiaq"]
+[ext_resource type="Texture2D" uid="uid://cky7kfbf6c35a" path="res://assets/Titles/duckyouanddie7.png" id="8_wonei"]
+[ext_resource type="Texture2D" uid="uid://b7fsrhjsm74l" path="res://assets/Titles/duckyouanddie8.png" id="9_ochoa"]
+[ext_resource type="Texture2D" uid="uid://c0rrixyxhx0xg" path="res://assets/Titles/duckyouanddie9.png" id="10_sgnop"]
+[ext_resource type="Texture2D" uid="uid://untv5me3m18b" path="res://assets/Titles/duckyouanddie10.png" id="11_hkm2s"]
+[ext_resource type="Texture2D" uid="uid://cpi6emsrfqphk" path="res://assets/Titles/duckyouanddie11.png" id="12_fnyww"]
+[ext_resource type="Texture2D" uid="uid://brkms1rtyjsiv" path="res://assets/Titles/duckyouanddie12.png" id="13_ns7vi"]
+[ext_resource type="Texture2D" uid="uid://bg7sxagysdd1m" path="res://assets/Titles/duckyouanddie13.png" id="14_5syi6"]
+[ext_resource type="Texture2D" uid="uid://btdh44710h22x" path="res://assets/Titles/duckyouanddie14.png" id="15_xhir1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4rdq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3rkn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_678g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qacxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_33pqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_52jd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_caiaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wonei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ochoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sgnop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hkm2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fnyww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ns7vi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5syi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xhir1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="animation" type="Node2D"]
 script = ExtResource("1_bdt0k")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
 autostart = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 1.0
-offset_right = 84.0
-offset_bottom = 24.0
-text = "Animation"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(577, 324)
+sprite_frames = SubResource("SpriteFrames_g4rdq")
+autoplay = "default"
+frame = 13
+frame_progress = 1.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
